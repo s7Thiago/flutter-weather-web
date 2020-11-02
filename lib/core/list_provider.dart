@@ -16,6 +16,5 @@ class ListProvider extends ChangeNotifier {
   void updateScroll(double newScroll) {
     this._currentScroll = newScroll;
     notifyListeners();
-    print('Current Scroll PIXEL: $newScroll');
   }
 }

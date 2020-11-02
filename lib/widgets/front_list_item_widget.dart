@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_weater_web/utils/mock.dart';
 import 'package:provider/provider.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../styles/global.dart';
 import '../core/list_provider.dart';
-import '../utils/mock.dart';
+import '../styles/global.dart';
+import '../utils/utils.dart';
 
-class FrontListItemWidget extends StatelessWidget {
+class FrontListItemWidget extends StatelessWidget with Utils {
   final Size size;
   final int index;
+  final Map data;
 
   const FrontListItemWidget({
     Key key,
     @required this.size,
     this.index,
+    @required this.data,
   }) : super(key: key);
 
   @override
@@ -24,7 +27,6 @@ class FrontListItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         listProvider.updateIndex(index);
-        print('INDEX: $index');
       },
       child: Card(
         margin: EdgeInsets.all(0),
@@ -48,14 +50,33 @@ class FrontListItemWidget extends StatelessWidget {
           height: 210,
           padding: const EdgeInsets.symmetric(vertical: 35),
           alignment: Alignment.center,
-          child: Text(
-            MockData.listItems[index],
-            style: TextStyle(
-              fontSize: 65,
-              color: listProvider.currentIndex == index
-                  ? "white".toColor()
-                  : Colors.black12,
-            ),
+          child: Column(
+            children: [
+              Text(
+                '${data['date'].split('/')[0]} ${MockData.listItems[int.parse(data['date'].split('/')[1])].substring(0, 3)}',
+                style: TextStyle(
+                  fontSize: listProvider.currentIndex == index ? 50 : 45,
+                  color: listProvider.currentIndex == index
+                      ? "white".toColor()
+                      : Colors.black12,
+                  fontWeight: listProvider.currentIndex == index
+                      ? FontWeight.w500
+                      : FontWeight.normal,
+                ),
+              ),
+              Text(
+                index == 0 ? 'Today' : '${data['weekday']}',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: listProvider.currentIndex == index
+                      ? "white".toColor()
+                      : Colors.black12,
+                  fontWeight: listProvider.currentIndex == index
+                      ? FontWeight.w300
+                      : FontWeight.normal,
+                ),
+              ),
+            ],
           ),
         ),
       ),

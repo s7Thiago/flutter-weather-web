@@ -53,7 +53,7 @@ class AppTopBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  title: Text('Diego Sousa'),
+                  title: Text('Thiago Silva'),
                   subtitle: Text('Basic Level'),
                 ),
               ),

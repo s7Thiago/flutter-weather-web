@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_weater_web/core/weather/get_weather.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/mock.dart';
-import '../styles/global.dart';
 import '../core/list_provider.dart';
+import '../styles/global.dart';
 import '../widgets/front_list_item_widget.dart';
 
 class FrontList extends StatelessWidget {
@@ -23,13 +23,29 @@ class FrontList extends StatelessWidget {
 
           return true;
         },
-        child: ListView.builder(
-          itemCount: MockData.listItems.length,
-          itemBuilder: (ctx, index) {
-            return FrontListItemWidget(
-              size: size,
-              index: index,
-            );
+        child: FutureBuilder(
+          future: getWeather(),
+          builder: (BuildContext context,
+              AsyncSnapshot<Map<dynamic, dynamic>> snapshot) {
+            // print('DADOS: \t\t${snapshot.data['list'].length}');
+
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  itemCount: snapshot.data['results']['forecast'].length,
+                  itemBuilder: (ctx, index) {
+                    return FrontListItemWidget(
+                      size: size,
+                      index: index,
+                      data: snapshot.data['results']['forecast'][index],
+                    );
+                  });
+            } else {
+              return Material(
+                child: Center(
+                  child: Text('Nenhuma informação recebida'),
+                ),
+              );
+            }
           },
         ),
       ),

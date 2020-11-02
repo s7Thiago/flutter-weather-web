@@ -30,5 +30,5 @@ class MockData {
   ];
 
   static final profileImageUrl =
-      'https://scontent.fgyn7-1.fna.fbcdn.net/v/t1.0-9/105903023_2740431489561920_4053372878419747856_o.jpg?_nc_cat=106&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeGQgSmLzA8__0MtbbIV4jrJ1JB6rUdMsRbUkHqtR0yxFjyo0pJc_YW8sJ5D2TUftq45cawTKd0cvqzQDSe_1OpI&_nc_ohc=SW7wp-hOeeYAX9e32iR&_nc_ht=scontent.fgyn7-1.fna&oh=5d34fa64f0477b875cfd377b4c341f61&oe=5FC57CD1';
+      'https://scontent.fgyn7-1.fna.fbcdn.net/v/t1.0-9/82775852_2557875374339619_3384289596224307200_o.jpg?_nc_cat=110&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFMRJdzFFr5n-4YUkcTjIDKXAeRH1SXbB1cB5EfVJdsHbGsp95vvig00YbQbRbu4PNETDBAJE20DGxiqROnuDtI&_nc_ohc=lahvNbHezYwAX_KJ5JM&_nc_oc=AQltbybVKSNr2iTwumYHJvES09FMXy6fruzFv9CuN7SQ5U3LrYILgZ26yN-_9jFj_tA&_nc_ht=scontent.fgyn7-1.fna&oh=49e7332650d74c37c2199a7341a0d8ce&oe=5FC6F832';
 }

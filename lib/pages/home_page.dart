@@ -5,7 +5,7 @@ import '../widgets/frontList.dart';
 import '../widgets/detailsList.dart';
 import '../widgets/app_top_bar.dart';
 import '../core/list_provider.dart';
-
+import '../core/weather/weather_provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,12 +24,15 @@ class _HomePageState extends State<HomePage> {
           AppTopBar(size: size),
           Container(
             height: size.height * .85,
-            child: ChangeNotifierProvider(
-              create: (_) => ListProvider(),
+            child: MultiProvider(
+              providers: [
+                ChangeNotifierProvider(create: (_) => ListProvider()),
+                ChangeNotifierProvider(create: (_) => WeatherProvider()),
+              ],
               child: Row(
                 children: [
                   Expanded(flex: 1, child: FrontList(size: size)),
-                  Expanded(flex: 3,child: DetailsList()),
+                  Expanded(flex: 3, child: DetailsList()),
                 ],
               ),
             ),
