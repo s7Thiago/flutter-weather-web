@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../styles/global.dart';
-import '../utils/mock.dart';
 import '../core/weather/get_weather.dart';
+import '../utils/mock.dart';
 
 class AppTopBar extends StatelessWidget {
   final Size size;
