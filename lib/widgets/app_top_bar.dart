@@ -23,29 +23,23 @@ class AppTopBar extends StatelessWidget {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 200,
-                    height: double.infinity,
-                    alignment: Alignment.topCenter,
-                    // color: Colors.green,
-                    child: Image.network(
-                        'https://conceptdraw.com/a2241c3/p20/preview/640/pict--window-buttons-mac-os-x-buttons-and-segmented-controls-vector-stencils-library'),
-                    margin: const EdgeInsets.only(left: 0),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${snapshot.data['results']['city']}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5
-                            .copyWith(fontWeight: FontWeight.w600),
-                      ),
-                      Text(
-                          '${MockData.listItems[int.parse(snapshot.data['results']['date'].split('/')[1])].substring(0, 3)}, ${snapshot.data['results']['forecast'][0]['weekday']}'),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 150),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${snapshot.data['results']['city']}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              .copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                            '${MockData.listItems[int.parse(snapshot.data['results']['date'].split('/')[1])].substring(0, 3)}, ${snapshot.data['results']['forecast'][0]['weekday']}'),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     width: 200,
