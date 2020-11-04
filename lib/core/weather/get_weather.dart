@@ -10,7 +10,7 @@ Future<Map> getWeather() async {
 
   // Github
   final ghUrl =
-      'https://raw.githubusercontent.com/s7Thiago/s7thiago.github.io/master/apis/weather.json';
+      'https://raw.githubusercontent.com/s7Thiago/s7thiago.github.io/master/apis/weather/weather.json';
 
   http.Response response = await http.get(ghUrl);
 

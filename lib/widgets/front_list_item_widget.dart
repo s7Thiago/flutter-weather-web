@@ -22,7 +22,7 @@ class FrontListItemWidget extends StatelessWidget with Utils {
   @override
   Widget build(BuildContext context) {
     final listProvider = Provider.of<ListProvider>(context, listen: true);
-    final radius = size.height * .07;
+    final radius = 60;
 
     return GestureDetector(
       onTap: () {
@@ -65,7 +65,7 @@ class FrontListItemWidget extends StatelessWidget with Utils {
                 ),
               ),
               Text(
-                index == 0 ? 'Today' : '${data['weekday']}',
+                index == 0 ? 'Hoje' : '${data['weekday']}',
                 style: TextStyle(
                   fontSize: 25,
                   color: listProvider.currentIndex == index
